@@ -39,7 +39,7 @@ dnf install -y kubelet kubectl kubeadm
 systemctl start kubelet && systemctl enable kubelet
 firewall-cmd --add-port=6443/tcp --permanent
 firewall-cmd --add-port=10250/tcp --permanent
-kubeadm init --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
+kubeadm init --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers --pod-network-cidr 10.244.0.0/16
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
