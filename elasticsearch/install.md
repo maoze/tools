@@ -8,7 +8,7 @@ docker network create elastic
 docker run --name es01 --net elastic -p 9200:9200 -p 9300:9300 -it docker.elastic.co/elasticsearch/elasticsearch:8.1.1
 
 // reset elastic user password
-docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-reset-password
+docker exec -it es01 /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
 ```
 
 ERROR: [1] bootstrap checks failed. You must address the points described in the following [1] lines before starting Elasticsearch.
