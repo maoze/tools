@@ -12,6 +12,7 @@ dnf install epel-release -y
 sed -e 's!^metalink=!#metalink=!g' \
     -e 's!^#baseurl=!baseurl=!g' \
     -e 's!//download\.fedoraproject\.org/pub!//mirrors.tuna.tsinghua.edu.cn!g' \
+    -e 's!//download\.example/pub!//mirrors.tuna.tsinghua.edu.cn!g' \
     -e 's!http://mirrors\.tuna!https://mirrors.tuna!g' \
     -i /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel-testing.repo \
     /etc/yum.repos.d/epel-modular.repo /etc/yum.repos.d/epel-playground.repo /etc/yum.repos.d/epel-testing-modular.repo
