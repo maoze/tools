@@ -2,6 +2,7 @@ sed -e 's!^mirrorlist=!#mirrorlist=!g' \
     -e 's!^#baseurl=!baseurl=!g' \
     -e 's!//mirror.centos.org!//mirrors.tuna.tsinghua.edu.cn!g' \
     -e 's!http://mirrors\.tuna!https://mirrors.tuna!g' \
+    -e 's!releasever!releasever-stream!g' \
     -i /etc/yum.repos.d/CentOS-AppStream.repo /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-centosplus.repo /etc/yum.repos.d/CentOS-CR.repo \
     /etc/yum.repos.d/CentOS-Debuginfo.repo /etc/yum.repos.d/CentOS-Extras.repo /etc/yum.repos.d/CentOS-fasttrack.repo /etc/yum.repos.d/CentOS-HA.repo \
     /etc/yum.repos.d/CentOS-Media.repo /etc/yum.repos.d/CentOS-PowerTools.repo /etc/yum.repos.d/CentOS-Sources.repo /etc/yum.repos.d/CentOS-Vault.repo
