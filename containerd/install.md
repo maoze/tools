@@ -18,3 +18,20 @@ git checkout v0.2.x
 git push -u origin --all
 
 git push -u origin --tags
+
+// compile binaries
+make
+
+// install-cri-deps
+#dnf install -y libseccomp-devel
+dnf install -y tar
+make install-deps
+make install-cri-deps
+
+
+
+
+
+
+mv ca.crt /etc/pki/ca-trust/source/anchors/
+update-ca-trust

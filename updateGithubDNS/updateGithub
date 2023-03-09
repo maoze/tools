@@ -1,0 +1,18 @@
+#!/bin/bash
+updateTime=`curl https://raw.hellogithub.com/hosts 2>/dev/null | grep -oP "(?<=Update time: ).*"`
+if [ -z $updateTime ] ; then
+	timestampUpdate=0
+else
+	timestampUpdate=`date -d $updateTime +%s`
+fi
+timeInFile=`grep -oP "(?<=Update time: ).*" /etc/hosts`
+if [ -z $timeInFile ] ; then
+	timestampFile=0
+else
+	timestampFile=`date -d $timeInFile +%s`
+fi
+if [ $timestampUpdate -gt $timestampFile ] ; then
+	gawk '$0 == "# GitHub520 Host Start", $0 == "# GitHub520 Host End"{next} {print}' /etc/hosts > /etc/hosts.bak	
+	curl https://raw.hellogithub.com/hosts >> /etc/hosts.bak
+	cp /etc/hosts.bak /etc/hosts
+fi
