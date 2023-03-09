@@ -1,0 +1,20 @@
+[ req ]
+distinguished_name      = req_distinguished_name
+req_extensions  = v3_req        # The extensions to add to the self signed cert
+prompt = no
+[ req_distinguished_name ]
+commonName                      = c160
+[ v3_req ]
+keyUsage = critical,digitalSignature,keyEncipherment
+extendedKeyUsage = serverAuth,clientAuth
+basicConstraints = critical,CA:false
+authorityKeyIdentifier = keyid
+subjectAltName = @alt_section
+[ alt_section ]
+DNS.1 = c160
+DNS.2 = C170
+DNS.3 = C180
+DNS.4 = localhost
+IP.1 = 196.168.122.160
+IP.2 = 127.0.0.1
+IP.3 = 0:0:0:0:0:0:0:1

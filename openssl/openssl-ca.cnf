@@ -1,0 +1,13 @@
+[ req ]
+distinguished_name      = req_distinguished_name
+x509_extensions = v3_ca # The extensions to add to the self signed cert
+prompt = no
+[ req_distinguished_name ]
+commonName                      = etcd-ca
+[ v3_ca ]
+keyUsage = critical,digitalSignature,keyEncipherment,keyCertSign
+basicConstraints = critical,CA:true
+subjectKeyIdentifier = hash
+subjectAltName = @alt_section
+[ alt_section ]
+DNS = etcd-ca
